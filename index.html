@@ -11,6 +11,7 @@
 </body>
 </html>
 <script>
+  const number = Math.floor(Math.random() *1200 +1);
   const root = document.getElementById('root');
   const xhr = new XMLHttpRequest(); //xml 개체를 생성하는 방법
   xhr.open('GET',"https://pokeapi.co/api/v2/pokemon/ditto");
@@ -19,9 +20,11 @@
     console.log(xhr.response);
     const PokeData = JSON.parse(xhr.response);
     const h1 = document.createElement('h1');
-    h1.innerHTML = '<img src="'+PokeData.sprites['front_default']+'">';
-    root.appendChild(h1);
     console.log(PokeData);
+    h1.innerHTML = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${number}.png">`;
+    root.appendChild(h1);
+    
+    
     
   }
   
