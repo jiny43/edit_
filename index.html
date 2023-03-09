@@ -7,8 +7,30 @@
   <title>Document</title>
 </head>
 <body>
-  깃 헷갈린다.
-  깃 반복하면 이것 만한게 없다
-???
+  <div id="root"></div>
 </body>
 </html>
+<script>
+  const root = document.getElementById('root');
+  const xhr = new XMLHttpRequest(); //xml 개체를 생성하는 방법
+  xhr.open('GET',"https://pokeapi.co/api/v2/pokemon/ditto");
+  xhr.send();
+  xhr.addEventListener('load',function(){
+    console.log(xhr.response);
+    const PokeData = JSON.parse(xhr.response);
+    const h1 = document.createElement('h1');
+    h1.innerHTML = '<img src="'+PokeData.sprites['front_default']+'">';
+    root.appendChild(h1);
+    console.log(PokeData);
+    
+  }
+  
+
+
+  
+  
+  );
+
+
+
+</script>
